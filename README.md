@@ -1,16 +1,15 @@
-# Personal Fedora Notes
+# Personal Fedora 32 Notes
 
 * [Java](#java)
- * [Oracle JDK 8](#oracle-java-8)
 
 ## Remove
 
-    sudo dnf remove kmahjongg kmines kpat kolourpaint konqueror krusader liveusb-creator amarok-libs \
-    calligra-libs qupzilla krdc krfb kruler kcolorchooser dnfdragora konqueror
+    sudo dnf remove konqueror calligra-libs falkon krfb dnfdragora
     
 ## Install
 
-    sudo dnf install gnome-icon-theme breeze-gtk
+    sudo dnf install gnome-icon-theme breeze-gtk gsl dnfdaemon dnfdaemon-selinux libyui libyui-qt libyui-mga-qt \
+    libyui-ncurses libyui-qt-graph python3-dnfdaemon python3-pyyaml python3-yui
 
 ## Java
 
@@ -21,70 +20,22 @@
 
 ### Open JDK 8
 
-    sudo dnf install java-1.8.0-openjdk.x86_64 java-1.8.0-openjdk-devel.x86_64 java-1.8.0-openjdk-demo.x86_64
+	sudo dnf install java-1.8.0-openjdk.x86_64 java-1.8.0-openjdk-devel.x86_64 java-1.8.0-openjdk-demo.x86_64
 	
-### Oracle JDK 8
-
-#### Install
-
-	sudo su
-	rpm -ivh jdk-8u25-linux-x64.rpm
-
-#### Upgrade
-
-	rpm -Uvh jdk-8u25-linux-x64.rpm
-	
-#### Using Dnf
-
-    sudo dnf install jdk-8u112-linux-x64.rpm
 	
 #### Setup environmental variables
 
-	emacs -nw .bashrc
+	dnf group install --with-optional virtualization
 	
-	export JAVA_HOME=/usr/java/default/
-	export PATH=$JAVA_HOME/bin:$PATH
-
-Source: [1](https://docs.oracle.com/javase/8/docs/technotes/guides/install/linux_jdk.html#BJFJHFDD)
-
-### Android
-
-#### Latest Android Studio dependencies
-
-    sudo dnf install zlib.i686 ncurses-libs.i686 bzip2-libs.i686 libgcc.i686
-
-#### udev Rules
-
-	cd /etc/udev/rules.d
-	wget https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules
-	chmod a+r /etc/udev/rules.d/51-android.rules
 
 #### Virtualization (Only one)
 
     sudo dnf install qemu-kvm libvirt
 
-### Genymotion
-
-	./genymotion-2.2.1_x64.bin
-	
-#### Android SDK Environmental Variable
-
-	~/.bashrc
-	export ANDROID_HOME=/home/sudhir/Documents/Android/sdk
-	export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-
-Source: [1](https://developer.android.com/studio/troubleshoot.html#linux-libraries) [2](https://github.com/M0Rf30/android-udev-rules/blob/master/51-android.rules)
 
 ### TLP
 
-#### Configure Repo
-
-	sudo dnf install http://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release-1.0-0.noarch.rpm
-	sudo dnf install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
-
-#### Installation
-
-	sudo dnf install tlp tlp-rdw akmod-tp_smapi akmod-acpi_call kernel-devel
+	dnf install tlp tlp-rdw
 
 [Linrunner.de](http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html#installation)
 
@@ -96,10 +47,9 @@ Source: [1](https://developer.android.com/studio/troubleshoot.html#linux-librari
 - Under Graphics cache, set Use for LibreOffice to 128 MB
 - Set Memory per object to 20 MB (up from the default 5 MB).
 
-### Google Chrome
+### Chromium
 
-	sudo dnf install google-chrome-stable    
-	sudo rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
+	sudo dnf install chromium-freeworld
 
 ## Graphics
 
@@ -109,7 +59,9 @@ Source: [1](https://developer.android.com/studio/troubleshoot.html#linux-librari
 
 ### Design
 
-    sudo dnf install inkscape.x86_64 pencil
+    Download from https://www.appimagehub.com/p/1288974
+    chmod +x Inkscape-9dee831-x86_64.AppImage
+    ./Inkscape-9dee831-x86_64.AppImage
 
 ## Developmental
 
