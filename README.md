@@ -133,6 +133,7 @@
 
 ### Microsoft Core Fonts
 
+    sudo dnf install cabextract
     sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
     
 [mscorefonts2 Sourceforge](http://sourceforge.net/projects/mscorefonts2/?source=typ_redirect)
