@@ -54,7 +54,7 @@
 	chmod +x Inkscape-9dee831-x86_64.AppImage
 	./Inkscape-9dee831-x86_64.AppImage
 
-## Developmental
+## Development
 
 	dnf groupinstall "Development Tools" "Development Libraries"
 
